@@ -1,0 +1,408 @@
+/* 
+Jose Fernando Chaguala Millán
+Estilos Programa para encriptar y desencriptar texto
+25 julio 2024 
+*/
+
+/* Importando Fuentes requeridas */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* Declaración de variables */
+:root {
+    --color-primario: #000000;
+    --color-background: #000000;
+    --color-secundario: #FCC503;
+    --color-textarea: #222222;
+    --color-texto: #ffffff;
+    --color-footer: #FFD866;
+    --color-boton-copiar: #D6EFFB;
+    --fuente-inter: 'Inter', sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 1.1rem;
+}
+
+body {
+    color: var(--color-texto);
+    font-family: var(--fuente-inter);
+    background-color: var(--color-background);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.header {
+    display: flex;
+    padding: 1rem 0 0 1rem;
+    justify-content: left;
+    gap: 5rem;
+    align-items: flex-start;
+}
+
+main {
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    font-weight: 400;
+    line-height: 1.5;
+    font-size: 2rem;
+    padding: 3%;
+    gap: 2%;
+}
+
+.logo {
+    width: 150px;
+}
+
+.zona-izquierda,
+.zona-derecha {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    width: 50%;
+    position: relative;
+}
+
+.texto-procesado {
+    width: 100%;
+    height: 250px;
+    background-color: var(--color-textarea);
+    border: 2px solid var(--color-secundario);
+    border-radius: 20px;
+    overflow-y: auto;
+    resize: none;
+    padding: 2.5%;
+}
+
+textarea {
+    margin: 9% 0 0 0;
+    width: 100%;
+    height: 250px;
+    background-color: var(--color-textarea);
+    border: 2px solid var(--color-secundario);
+    border-radius: 20px;
+    resize: none;
+    margin-bottom: 10px;
+    color: #fff;
+    padding: 10px;
+    font-size: 32px;
+    font-family: var(--fuente-inter);
+}
+
+.botones {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.boton-encriptar {
+    background-color: var(--color-secundario);
+    border: 1px solid var(--color-texto);
+    border-radius: 24px;
+    color: var(--color-primario);
+    font-family: var(--fuente-inter);
+    cursor: pointer;
+    height: 4rem;
+    width: 18rem;
+    font-size: 16px;
+}
+
+.boton-desencriptar {
+    background-color: var(--color-primario);
+    border: 1px solid var(--color-secundario);
+    color: var(--color-secundario);
+    border-radius: 24px;
+    font-family: var(--fuente-inter);
+    cursor: pointer;
+    height: 4rem;
+    width: 18rem;
+    font-size: 16px;
+}
+
+button {
+    background-color: var(--color-boton-copiar);
+    border: 1px solid var(--color-secundario);
+    color: var(--color-primario);
+    padding: 10px 20px;
+    border-radius: 24px;
+    font-family: var(--fuente-inter);
+    font-size: 16px;
+    cursor: pointer;
+    height: 4rem;
+    width: 18rem;
+    font-size: 16px;
+}
+
+.contenedor-derecho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+}
+
+.copiar {
+    margin: 9% 0 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-copiar {
+    background-color: var(--color-boton-copiar);
+    border: 1px solid var(--color-secundario);
+    color: var(--color-primario);
+    font-family: var(--fuente-inter);
+    border-radius: 24px;
+    cursor: pointer;
+    height: 4rem;
+    width: 18rem;
+    display: none;
+}
+
+.zona-salida img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+
+}
+
+footer {
+    background-color: var(--color-footer);
+    color: var(--color-primario);
+    padding: 10px 20px;
+    width: 100%;
+    text-align: center;
+    position: relative;
+    bottom: 0;
+}
+
+/* Estilos responsivos */
+
+@media (max-width:1500px) {
+
+    .boton-encriptar,
+    .boton-desencriptar,
+    .boton-copiar {
+        width: 16rem;
+    }
+}
+
+@media(max-width:1200px) {
+
+    .boton-encriptar,
+    .boton-desencriptar,
+    .boton-copiar {
+        width: 14rem;
+    }
+}
+
+@media (max-width:1024px) {
+
+    main {
+        gap: 5%;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .header {
+        gap: 2.5rem;
+    }
+
+    .logo {
+        width: 17%;
+    }
+
+    .boton-encriptar,
+    .boton-desencriptar,
+    .boton-copiar {
+        width: 100%;
+    }
+
+    .botones {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+}
+
+@media (max-width: 1021px) {
+
+    body {
+        padding: 0 1% 0 1%;
+    }
+
+    main {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .zona-salida img {
+        display: none;
+    }
+
+    .zona-izquierda,
+    .zona-derecha {
+        width: 100%;
+    }
+
+    .copiar {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+
+    .boton-encriptar,
+    .boton-desencriptar,
+    .boton-copiar {
+        width: 100%;
+    }
+
+    .footer {
+        margin-top: 5rem;
+    }
+}
+
+@media (max-width: 920px) {
+
+    body {
+        padding: 0 1% 0 1%;
+    }
+
+    main {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .zona-salida img {
+        display: none;
+    }
+
+    .zona-izquierda,
+    .zona-derecha {
+        width: 100%;
+    }
+
+    .copiar {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+
+    .boton-encriptar,
+    .boton-desencriptar,
+    .boton-copiar {
+        width: 100%;
+    }
+
+    .footer {
+        margin-top: 5rem;
+    }
+}
+
+@media (max-width: 820px) {
+
+    body {
+        padding: 0 1% 0 1%;
+    }
+
+    main {
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .zona-salida img {
+        display: none;
+    }
+
+    .zona-izquierda,
+    .zona-derecha {
+        width: 100%;
+    }
+
+    .copiar {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .boton-encriptar,
+    .boton-desencriptar,
+    .boton-copiar {
+        width: 100%;
+    }
+
+    .footer {
+        margin-top: 5rem;
+    }
+}
+
+@media (max-width: 768px) {
+
+    main {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .zona-salida img {
+        display: none;
+    }
+
+    .zona-izquierda,
+    .zona-derecha {
+        width: 100%;
+    }
+
+    button {
+        width: 100%;
+    }
+
+    .footer {
+        margin-top: 2rem;
+    }
+
+}
+
+@media (max-width: 480px) {
+    textarea {
+        height: 120px;
+    }
+
+    .zona-salida img {
+        display: none;
+    }
+
+    button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+}
